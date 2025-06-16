@@ -3,7 +3,7 @@
 import { Client } from "pg";
 
 const SQL = `
-  CREATE TABLE monsters (
+  CREATE TABLE IF NOT EXISTS monsters (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   type TEXT CHECK(type IN ('humanoid', 'oneEye', 'weird')) NOT NULL,
