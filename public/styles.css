@@ -1,0 +1,240 @@
+@font-face {
+    font-family: 'MyFont';
+    src:
+    local('HVD_Rowdy.otf'), 
+    url('/fonts/HVD_Rowdy.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  background-color: #222;
+}
+
+p, h1, h2, h3, a, ul{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #fffdfd;
+  list-style-type: none;
+}
+
+.my-list {
+  color: #c6caae;
+}
+
+.title {
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'MyFont', sans-serif;;
+  text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77,0,38,0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77,0,13,0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77,25,0,0.5), 9px 0 18px #FFD500, 11px 0 18px #806A00, 12px 2px 18px rgba(77,66,0,0.5), 12px 0 30px #D4FF00, 14px 0 30px #6A8000, 15px 2px 30px rgba(64,77,0,0.5), 15px 0 45px #80FF00, 17px 0 45px #408000, 17px 2px 45px rgba(38,77,0,0.5);
+}
+
+.create-title {
+  font-size: 1.8rem;
+  text-shadow: 0.1em 0.1em 0 hsl(0, 2%, 8%);
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  border-bottom: 1px solid #6A8000;
+  display: inline-block;
+  transition: border-color 0.3s ease;
+  color: #77b53a;
+}
+
+.create-title:hover {
+  border-color: #f6f6f6; 
+  color: #7ce513;
+}
+
+.gradient {
+  background: linear-gradient(to right, #961024 30%, #74af39 70%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: none;
+  animation:slidebg 20s linear infinite;
+}
+
+.gradient:hover {
+  background: linear-gradient(to right, #af142b 30%, #82c63e 70%);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-shadow: none;
+  cursor: pointer;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgb(247, 6, 6);
+  margin-bottom: 18px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+nav p, nav a{
+  color: rgb(190, 45, 45);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  transition: transform 250ms;
+}
+
+img:hover {
+  transform: translateY(-2px);
+}
+
+.monsters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  max-width: 740px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.monsters-container h2 {
+  color: rgb(0, 0, 0);
+   text-shadow:
+    1px 1px 0 #000,
+    1px 1px 2px #959c0b,
+    0 0 5px #ffff00;
+  margin-bottom: 5px;
+  background-color: #6A8000;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 10px;
+  width: 160px;
+  padding: 2px 5px;
+  text-align: center;
+}
+
+.questions-container {
+  background: url(./images/questions-background.png);
+  background-repeat: repeat;
+  background-size: 300% auto; 
+  background-position: 0 0;
+  animation: scroll-bg 60s linear infinite;
+  will-change: auto;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 640px;
+  height: 300px;
+  margin: 50px auto 0;
+  text-align: center;
+  gap: 1rem;
+  border: 2px solid rgba(43, 39, 39, 0.6);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+}
+
+
+@keyframes scroll-bg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 0; /* moves left over time */
+  }
+}
+
+
+.questions-container h2 {
+  color: #e1ead8;
+}
+
+.questions-container input{
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.questions-container button{
+  width: 200px;
+  margin: 0 auto;
+  padding: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.questions-container button:hover{
+  cursor: pointer;
+}
+
+.monster-card {
+  position: relative;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-35px, -5px);
+  cursor: pointer;
+    color: rgb(255, 4, 4);
+   text-shadow:
+    1px 1px 0 #000,
+    1px 1px 2px #8b0000,
+    0 0 5px #ff0000;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  font-family: "Permanent Marker", cursive;
+}
+
+.delete-btn:hover {
+  color: rgb(255, 255, 255);
+}
+
+main {
+  position: relative;
+}
+.credits {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.credits .underline {
+  text-decoration: underline;
+}
+
+.button-group {
+  padding-top: 50px;
+}
+
+.button-group button:hover {
+  cursor: pointer;
+  background-color: rgb(152, 35, 35);
+  color: whitesmoke;
+}

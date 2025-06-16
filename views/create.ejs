@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('partials/head.ejs') %>
+<body>
+  <%- include ('partials/nav.ejs')  %>
+
+  <main>
+    <form>
+      <div class="questions-container">
+        <h2>First choose a name for your monster</h2>
+        <label for="username"></label>
+        <input type="text" name="username" id="username" placeholder="Name" required>
+        <button type="button" id="next-btn">NEXT</button>
+      </div>
+    </form>
+  </main>
+  <script src="/js/monsterForm.js"></script>
+</body>
+</html>
