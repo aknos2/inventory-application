@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node populatedb.js && node app.js"
+    "start": "node db/populatedb.js && node app.js"
   },
   "keywords": [],
   "author": "",
