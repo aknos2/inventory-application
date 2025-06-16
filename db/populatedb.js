@@ -21,7 +21,8 @@ async function main() {
   try {
     console.log("seeding...");
     const client = new Client({
-      connectionString: "postgresql://ryuji:@localhost:5432/inventory_application",
+      connectionString: process.env.DATABASE_URL,
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
     });
     await client.connect();
     await client.query(SQL);
