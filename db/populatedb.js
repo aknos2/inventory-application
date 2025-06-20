@@ -6,7 +6,7 @@ const SQL = `
   CREATE TABLE IF NOT EXISTS monsters (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
-  type TEXT CHECK(type IN ('humanoid', 'oneEye', 'weird')) NOT NULL,
+  type TEXT CHECK(type IN ('humanoid', 'oneeye', 'weird')) NOT NULL,
   q1_answer CHAR(1) CHECK(q1_answer IN ('A', 'B', 'C')) NOT NULL,
   q2_answer CHAR(1) CHECK(q2_answer IN ('A', 'B', 'C')) NOT NULL
 );
