@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import pool from './pool.js';
+import { Client } from "pg";
+import 'dotenv/config';
 
 const SQL = `
   CREATE TABLE IF NOT EXISTS monsters (
@@ -21,13 +22,17 @@ const SQL = `
 async function main() {
   try {
     console.log("seeding...");
-    await pool.query(SQL);
+    const client = new Client({
+      connectionString: process.env.DATABASE_URL,
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    });
+    await client.connect();
+    await client.query(SQL);
+    await client.end();
     console.log("done");
   } catch (err) {
     console.log('Something went wrong', err);
     process.exit(1);
-  } finally {
-    await pool.end();
   }
 }
 
