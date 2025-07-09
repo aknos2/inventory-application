@@ -12,7 +12,7 @@ const steps = [
     question: "What type is your monster?",
     options: [
       { label: "Humanoid", value: "humanoid" },
-      { label: "One-eyed", value: "oneEye" },
+      { label: "One-eyed", value: "oneeye" },
       { label: "Bizarre", value: "weird" }
     ]
   },
@@ -143,8 +143,13 @@ function submitMonster() {
   })
   .then(res => {
     if (!res.ok) {
-      return res.json().then(data => {
-        throw new Error(data.message || 'Failed to create monster');
+      return res.text().then(text => {
+        try {
+          const data = JSON.parse(text);
+          throw new Error(data.message || 'Failed to create monster');
+        } catch {
+          throw new Error(text || 'Failed to create monster');
+        }
       });
     }
     return res.json();
