@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import pool from './db/pool.js';
+import pool from './pool.js';
 
 const SQL = `
   CREATE TABLE IF NOT EXISTS monsters (
