@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "build": "node populatedb.js"
+    "build": "node ./db/populatedb.js"
   },
   "keywords": [],
   "author": "",
