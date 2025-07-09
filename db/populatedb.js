@@ -15,10 +15,12 @@ const SQL = `
 );
 
   INSERT INTO monsters (name, type, q1_answer, q2_answer)
-  VALUES 
-    ('Elizabeth', 'weird', 'C', 'A'),
-    ('Bobo', 'humanoid', 'A', 'B')
-    ON CONFLICT (name) DO NOTHING;
+  SELECT 'Elizabeth', 'weird', 'C', 'A'
+  WHERE NOT EXISTS (SELECT 1 FROM monsters WHERE name = 'Elizabeth');
+  
+  INSERT INTO monsters (name, type, q1_answer, q2_answer)
+  SELECT 'Bobo', 'humanoid', 'A', 'B'
+  WHERE NOT EXISTS (SELECT 1 FROM monsters WHERE name = 'Bobo');
 `;
 
 async function main() {
