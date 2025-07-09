@@ -14,7 +14,8 @@ const SQL = `
   INSERT INTO monsters (name, type, q1_answer, q2_answer)
   VALUES 
     ('Elizabeth', 'weird', 'C', 'A'),
-    ('Bobo', 'humanoid', 'A', 'B');
+    ('Bobo', 'humanoid', 'A', 'B')
+    ON CONFLICT (name) DO NOTHING;
 `;
 
 async function main() {
