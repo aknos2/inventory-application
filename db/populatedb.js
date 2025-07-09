@@ -1,6 +1,6 @@
-#! /usr/bin/env node
+#!/usr/bin/env node
 
-import { Client } from "pg";
+import pool from './db/pool.js';
 
 const SQL = `
   CREATE TABLE IF NOT EXISTS monsters (
@@ -21,17 +21,13 @@ const SQL = `
 async function main() {
   try {
     console.log("seeding...");
-    const client = new Client({
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
-    });
-    await client.connect();
-    await client.query(SQL);
-    await client.end();
+    await pool.query(SQL);
     console.log("done");
   } catch (err) {
     console.log('Something went wrong', err);
     process.exit(1);
+  } finally {
+    await pool.end();
   }
 }
 
